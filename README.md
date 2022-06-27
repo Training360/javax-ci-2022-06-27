@@ -10,3 +10,11 @@ mvn wrapper:wrapper
 mvnw package
 java -jar target\employees-1.0-SNAPSHOT.jar
 ```
+
+```shell
+mvnw help:effective-pom
+mvnw test
+mvnw dependency:tree
+mvnw dependency:analyze
+mvnw versions:display-dependency-updates
+```
