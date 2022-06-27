@@ -189,6 +189,21 @@
 				</executions>
 			</plugin>
 
+					<!-- Integrációs teszteket futtatja: integration-test -->
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-failsafe-plugin</artifactId>
+			<version>2.22.2</version>
+			<executions>
+				<execution>
+					<goals>
+						<goal>integration-test</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>
+
+
         </plugins>
     </build>
 
