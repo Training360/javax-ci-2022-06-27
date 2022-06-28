@@ -1,4 +1,12 @@
+FROM openjdk:17 as cache
+WORKDIR app
+COPY pom.xml .
+COPY .mvn ./.mvn
+COPY mvnw/ ./
+RUN ./mvnw package --fail-never
+
 FROM openjdk:17 as builder
+COPY --from=cache /root/.m2/ /root/.m2/
 WORKDIR app
 #COPY target/*.jar employees.jar
 COPY . .

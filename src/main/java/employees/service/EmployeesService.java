@@ -32,7 +32,7 @@ public class EmployeesService {
     public EmployeeDto createEmployee(CreateEmployeeCommand command) {
         Employee employee = new Employee(command.getName());
         repository.save(employee);
-        log.info("Employee has been created!");
+        log.info("Employee has been created");
         log.debug("Employee has been created with name {}", command.getName());
         return employeeMapper.map(employee);
     }

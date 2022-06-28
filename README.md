@@ -35,3 +35,13 @@ set SPRING_DATASOURCE_USERNAME=employees
 ```shell
 docker build -t employees -f Dockerfile.layered .
 ```
+
+## Alkalmazás és adatbázis futtatása
+
+```shell
+docker network create employees-net
+
+docker run -d -e MARIADB_DATABASE=employees -e MARIADB_USER=employees -e MARIADB_PASSWORD=employees  -e MARIADB_ALLOW_EMPTY_ROOT_PASSWORD=yes -p 3307:3306 --name employees-app-mariadb --network employees-net mariadb
+
+docker run -d  -e SPRING_DATASOURCE_URL=jdbc:mariadb://employees-app-mariadb/employees -e SPRING_DATASOURCE_USERNAME=employees -e SPRING_DATASOURCE_PASSWORD=employees -p 8085:8080 --name employees-app --network employees-net employees
+```
