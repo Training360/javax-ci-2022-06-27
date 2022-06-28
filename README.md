@@ -53,3 +53,7 @@ docker build -t employees .
 cd employees
 docker compose up
 ```
+
+```shell
+docker-compose up --abort-on-container-exit
+```
