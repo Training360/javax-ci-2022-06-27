@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  employees-c-mariadb:
+    image: mariadb
+    expose:
+      - 3306
+    environment:
+      MARIADB_DATABASE: employees
+      MARIADB_ALLOW_EMPTY_ROOT_PASSWORD: 'yes' # aposztrófok nélkül boolean true-ként értelmezi
+      MARIADB_USER: employees
+      MARIADB_PASSWORD: employees
+
+  employees-c-app:
+    image: employees
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mariadb://employees-c-mariadb/employees
+      SPRING_DATASOURCE_USERNAME: employees
+      SPRING_DATASOURCE_PASSWORD: employees
+    depends_on:
+      - employees-c-mariadb
+    expose:
+      - 8080
+    ports:
+      - 8086:8080
+    volumes:
+    - ./wait:/opt/wait
+    entrypoint: ["/opt/wait/wait-for-it.sh", "-t", "120", "employees-c-mariadb:3306", "--", "java", "-jar", "app.jar"]

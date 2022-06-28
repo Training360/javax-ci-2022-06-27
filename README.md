@@ -45,3 +45,11 @@ docker run -d -e MARIADB_DATABASE=employees -e MARIADB_USER=employees -e MARIADB
 
 docker run -d  -e SPRING_DATASOURCE_URL=jdbc:mariadb://employees-app-mariadb/employees -e SPRING_DATASOURCE_USERNAME=employees -e SPRING_DATASOURCE_PASSWORD=employees -p 8085:8080 --name employees-app --network employees-net employees
 ```
+
+## Compose 
+
+```
+docker build -t employees .
+cd employees
+docker compose up
+```
