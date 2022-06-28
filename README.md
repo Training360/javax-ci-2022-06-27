@@ -31,3 +31,7 @@ set SPRING_DATASOURCE_URL=jdbc:mariadb://localhost/employees
 set SPRING_DATASOURCE_USERNAME=employees
 set SPRING_DATASOURCE_USERNAME=employees
 ```
+
+```shell
+docker build -t employees -f Dockerfile.layered .
+```
