@@ -24,6 +24,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <mapstruct.version>1.3.1.Final</mapstruct.version>
 		<java.version>17</java.version>
+		<sonar.login>b9bc8a4c7732e7948d3548437dca56ac7294b0b2</sonar.login>
 	</properties>
 
     <dependencies>

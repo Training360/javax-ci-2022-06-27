@@ -57,3 +57,34 @@ docker compose up
 ```shell
 docker-compose up --abort-on-container-exit
 ```
+
+## SonarQube
+
+```shell
+docker run --name employees-sonarqube -d -p 9000:9000 sonarqube:lts
+mvnw verify sonar:sonar
+```
+
+## Nexus
+
+```shell
+docker run --name nexus -d -p 8091:8081 -p8092:8082 sonatype/nexus3
+docker exec -it nexus cat /nexus-data/admin.password
+```
+
+`settings.xml` a `.m2` könyvtárban
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+   <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <url>http://localhost:8091/repository/maven-public/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
+```
