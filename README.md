@@ -108,3 +108,9 @@ docker tag employees localhost:8092/employees
 docker login localhost:8092
 docker push localhost:8092/employees
 ```
+
+## GitLab
+
+```shell
+docker exec -it gitlab-gitlab-1 grep "Password:" /etc/gitlab/initial_root_password
+```
