@@ -98,3 +98,13 @@ docker exec -it nexus cat /nexus-data/admin.password
   </mirrors>
 </settings>
 ```
+
+Deploy Nexus-ba: `mvnw -DskipTests deploy`
+
+## Image a Nexus-ba
+
+```shell
+docker tag employees localhost:8092/employees
+docker login localhost:8092
+docker push localhost:8092/employees
+```
