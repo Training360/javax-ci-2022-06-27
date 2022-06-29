@@ -1,0 +1,17 @@
+stages:
+  - build
+  - integration-test
+#  - e2e-test
+#  - deploy
+#  - deploy-to-test
+
+build-job:
+  stage: build
+  script:
+    - echo 'Executing build'
+
+integration-test-job:
+  stage: integration-test
+  script:
+    - echo 'Executing integration tests'
+
