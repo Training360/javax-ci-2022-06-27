@@ -127,7 +127,7 @@ git update-index --chmod=+x mvnw
 
 ```
 kubectl apply -f deployment.yaml
-kubctl get pods
+kubectl get pods
 kubectl logs employees-app-8666df8959-fgc6j
 kubectl port-forward employees-app-8666df8959-fgc6j 8088:8080
 ```
