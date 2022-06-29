@@ -79,6 +79,16 @@ docker exec -it nexus cat /nexus-data/admin.password
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+   
+   <servers>
+     <server>
+       <id>nexus-snapshots</id>
+       <username>admin</username>
+       <password>admin</password>
+     </server>
+   </servers>
+
+
    <mirrors>
     <mirror>
       <id>nexus</id>
