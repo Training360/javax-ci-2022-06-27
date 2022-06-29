@@ -7,11 +7,13 @@ stages:
 
 build-job:
   stage: build
+  image: openjdk:17
   script:
     - echo 'Executing build'
+    - ./mvnw package
 
 integration-test-job:
-  stage: integration-test
+  stage: integration-test  
   script:
     - echo 'Executing integration tests'
 
