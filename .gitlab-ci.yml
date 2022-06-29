@@ -17,6 +17,9 @@ build-job:
   image: openjdk:17
   script:
     - echo 'Executing build'
+    - echo $SONAR_TOKEN
+    - echo $CI_COMMIT_SHORT_SHA
+    - echo $CI_PIPELINE_ID
     - ./mvnw package
 
 integration-test-job:
