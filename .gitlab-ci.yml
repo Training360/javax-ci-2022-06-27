@@ -8,6 +8,7 @@ cache:
 stages:
   - build
   - integration-test
+  - build-image
 #  - e2e-test
 #  - deploy
 #  - deploy-to-test
@@ -21,9 +22,17 @@ build-job:
     - echo $CI_COMMIT_SHORT_SHA
     - echo $CI_PIPELINE_ID
     - ./mvnw package
+  artifacts:
+    paths:
+      - target/*.jar
 
 integration-test-job:
   stage: integration-test  
   script:
     - echo 'Executing integration tests'
 
+build-image-job:
+  stage: build-image
+  image: docker
+  script:
+    - docker build -t employees-app:1.0.0-$CI_PIPELINE_ID .
